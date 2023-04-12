@@ -1,1 +1,25 @@
-<p>trainings works!</p>
+<div class="container">
+  <ng-container *ngIf="listTrainings">
+    <table class="table">
+        <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nom</th>
+        <th scope="col">DESCRIPTION</th>
+        <th scope="col">PRIX</th>
+      </tr>
+</thead>
+<tbody>
+      <tr *ngFor="let training of listTrainings" scope="row">
+        <td>{{ training.id }}</td>
+        <td>{{ training.name }}</td>
+        <td>{{ training.description }}</td>
+        <td>{{ training.price }}</td>
+        <td><input type="number" name="quantity" [(ngModel)]="training.quantity" class="form-control" min="1"></td>
+        <td><a class="btn btn-outline-primary" (click)="onAddToCart(training)">Ajouter</a></td>
+      
+      </tr>
+      </tbody>
+    </table>
+  </ng-container>
+</div>
